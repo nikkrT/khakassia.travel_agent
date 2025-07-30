@@ -37,7 +37,7 @@ def extract_command(response: str) -> str:
     print(f"Не удалось определить команду из ответа: '{response}'. Возвращаем 'chat' как безопасное значение.")
     return "chat"
 
-def router(state: AgentState)->Literal["the_type","holiday_type","nature_type"]:
+def router(state: AgentState)->Literal["the_type","holiday_type","nature_type","END"]:
     params=st.session_state.params_flow
     print(f'\n\n---{params}---\n\n')
     if params['accomodation'] is None:
@@ -46,6 +46,8 @@ def router(state: AgentState)->Literal["the_type","holiday_type","nature_type"]:
         return "holiday_type"
     elif params['nature_recommendation'] is None:
         return 'nature_type'
+    else:
+        return "END"
 
 def route_decision(value: dict,id,str):
     print("Заходим в route_decision")

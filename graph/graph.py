@@ -29,7 +29,8 @@ def graph_func():
                                   {
                                       "the_type": 'the_type',
                                       "holiday_type" : 'holiday_type',
-                                      'nature_type':'nature_type'
+                                      'nature_type':'nature_type',
+                                      "END" : END
                                   }
                                   )
     builder.add_conditional_edges(
