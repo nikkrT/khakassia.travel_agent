@@ -77,7 +77,7 @@ def nature_extract(state: AgentState):
     final_response = StrOutputParser().invoke(final_response)
     params = st.session_state.params_flow
     params['nature_recommendation']=True
-    state["result"] = final_response
+    state["result"] = final_response+"\n Рекомендательный цикл окончен. Для повторного рекомендательного цикла нажмите ""Новый диалог"" "
 
 
 
