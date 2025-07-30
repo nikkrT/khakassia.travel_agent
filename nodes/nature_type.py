@@ -14,6 +14,7 @@ def nature_type(state: AgentState) -> AgentState:
     if response == 'END':
         params=st.session_state.params_flow
         params['nature_recommendation']=False
+        state['result']="Рекомендательный цикл окончен. Для повторного рекомендательного цикла нажмите ""Новый диалог"" "
     state['route']=response
 
     print(f"Значения в nature_type: {state['route']}")
