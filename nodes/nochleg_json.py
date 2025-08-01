@@ -77,15 +77,15 @@ def extract_nochleg(state: AgentState):
     print("Генерирую финальный ответ...")
 
 
-    final_response='тут результаты поиска'
-    # final_response = recommender_chain.invoke({
-    #     "user_query": user_query,
-    #     "context": json.dumps(relevant_items, ensure_ascii=False, indent=2)
-    # })
-    # usage = final_response.usage_metadata['total_tokens']
-    # with open('usage.txt', 'a', encoding='utf-8') as f:
-    #     f.write(f'nochleg json extraction usage: {usage}\n')
-    # final_response = StrOutputParser().invoke(final_response)
+    # final_response='тут результаты поиска'
+    final_response = recommender_chain.invoke({
+        "user_query": user_query,
+        "context": json.dumps(relevant_items, ensure_ascii=False, indent=2)
+    })
+    usage = final_response.usage_metadata['total_tokens']
+    with open('usage.txt', 'a', encoding='utf-8') as f:
+        f.write(f'nochleg json extraction usage: {usage}\n')
+    final_response = StrOutputParser().invoke(final_response)
 
     state["result"] = final_response
     params = st.session_state.params_flow

@@ -75,7 +75,6 @@ def holiday_extract(state: AgentState):
     })
 
     # final_response='тут результаты поиска'
-    print(final_response)
     usage = final_response.usage_metadata['total_tokens']
     with open('usage.txt', 'a', encoding='utf-8') as f:
         f.write(f'holiday json extraction usage: {usage}\n')
